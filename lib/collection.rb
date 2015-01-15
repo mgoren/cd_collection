@@ -1,4 +1,5 @@
 class Collection
+  @@collections = []
 
   define_method(:initialize) do
     @all_discs = []
@@ -32,5 +33,12 @@ class Collection
     titles
   end
 
+  define_method(:save) do
+    @@collections.push(self)
+  end
+
+  define_singleton_method(:last) do
+    @@collections.last()
+  end
 
 end
